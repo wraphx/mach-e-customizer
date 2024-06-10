@@ -143,4 +143,4 @@ console.log()
   )
 }
 
-useGLTF.preload('/models/MustangMach.glb')
+useGLTF.preload('/MustangMach.glb')

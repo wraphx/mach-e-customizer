@@ -13,43 +13,24 @@ export default function App() {
     <CustomizationProvider>
       <div className="App">
       <Loader />
-        <Canvas shadows camera={{ position: [0, 0, 20], fov:40 }}>
+      <Canvas camera={{ position: [-10, 40, 30], fov:35 }}>
           <color attach="background" args={['grey']} />
           <Suspense fallback={null}>
-          <MustangMach scale={0.63} position={[0, -1.1, 0]} />
+          <MustangMach scale={1.5} position={[0, -0.2, 0]} />
           </Suspense>
           <hemisphereLight intensity={0.5} />
-          <ContactShadows resolution={1024} frames={1} position={[0, -1.16, 0]} scale={15} blur={0.5} opacity={0.5} far={20} />
-          <mesh scale={4} position={[3, -1.161, -1.5]} rotation={[-Math.PI / 2, 0, Math.PI / 2.5]}>
-            <ringGeometry args={[0.9, 1, 4, 1]} />
-            <meshStandardMaterial color="white" roughness={0.75} />
-          </mesh>
-          <mesh scale={4} position={[-3, -1.161, -1]} rotation={[-Math.PI / 2, 0, Math.PI / 2.5]}>
-            <ringGeometry args={[0.9, 1, 3, 1]} />
-            <meshStandardMaterial color="white" roughness={0.75} />
-          </mesh>
+          <ContactShadows position={[0, -.16, 0]} scale={40} blur={1.5} opacity={1} far={20} />
+          <ContactShadows position={[0, -0.1, 0.0]} opacity={2.75} scale={30} blur={2.5} far={0.8} />
           <ambientLight intensity={0.7} />
           <spotLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
 
           {/* <Environment preset="city" /> */}
-          <Environment resolution={512}  >
-            {/* Ceiling */}
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -9]} scale={[10, 1, 1]} />
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -6]} scale={[10, 1, 1]} />
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -3]} scale={[10, 1, 1]} />
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, 0]} scale={[10, 1, 1]} />
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, 3]} scale={[10, 1, 1]} />
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, 6]} scale={[10, 1, 1]} />
-            <Lightformer intensity={2} rotation-x={Math.PI / 2} position={[0, 4, 9]} scale={[10, 1, 1]} />
-            {/* Sides */}
-            <Lightformer intensity={20} rotation-y={Math.PI / 2} position={[-50, 2, 0]} scale={[100, 2, 1]} />
-            <Lightformer intensity={20} rotation-y={-Math.PI / 2} position={[50, 2, 0]} scale={[100, 2, 1]} />
-            {/* Key */}
-            <Lightformer form="ring" color="gray" intensity={10} scale={2} position={[10, 5, 10]} onUpdate={(self) => self.lookAt(0, 0, 0)} />
+          <Environment preset="sunset" background ground={{ height: 30, radius: 190, scale: 100 }} backgroundBlurriness={0} backgroundIntensity={10}  environmentIntensity={30}>
+           
           </Environment>
-          <ContactShadows position={[0, -0.8, 0.0]} opacity={0.75} scale={10} blur={2.5} far={0.8} />
+          
           {/* <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={true} enablePan={false} /> */}
-          <OrbitControls autoRotate  enableRotate  enablePan={false} enableZoom={true}  minPolarAngle={Math.PI / 2.8} maxPolarAngle={Math.PI / 2.1} />
+          <OrbitControls enableRotate enablePan={false} enableZoom={true}  minPolarAngle={Math.PI / 2.8} maxPolarAngle={Math.PI / 2.1} />
         </Canvas>
         <Configurator />
       </div>

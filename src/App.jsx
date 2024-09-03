@@ -25,7 +25,7 @@ export default function App() {
           <spotLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
 
           {/* <Environment preset="city" /> */}
-          <Environment preset="sunset" background ground={{ height: 30, radius: 190, scale: 100 }} backgroundBlurriness={0} backgroundIntensity={10}  environmentIntensity={30}>
+          <Environment resolution={1024} files="/shanghai_bund_2k.hdr" background ground={{ height: 30, radius: 160, scale: 70 }} backgroundBlurriness={50} backgroundIntensity={10}  environmentIntensity={30}>
            
           </Environment>
           
